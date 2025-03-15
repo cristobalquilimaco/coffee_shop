@@ -1,3 +1,8 @@
+from django.contrib.auth.views import LoginView
+from django.urls import path
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('login/', 
+        LoginView.as_view(template_name=""), 
+        name="login"),
 ]
