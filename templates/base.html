@@ -7,6 +7,15 @@
     <title>Coffee Shop</title>
 </head>
 <body>
+    <h3> Hola
+        {% if user.is_authenticated %}
+        {{user.username}}
+        
+        {% else %}
+        <h3>Querido usuario puedes iniciar sesion aqui</h3> <a href="{% url "login" %}"> Login</a>
+    {% endif %}
+
+    </h3>
     <div class="container mx-auto px-4 ">
             {% block content %}{% endblock  %}
     </div>     
