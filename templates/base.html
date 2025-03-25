@@ -7,9 +7,15 @@
     <title>Coffee Shop</title>
 </head>
 <body>
-    <h3> Hola
-        {% if user.is_authenticated %}
-        {{user.username}}
+    <h3> Hola</h3>
+        <div class="flex items-center lg:order-2">
+            {% if user.is_authenticated %}
+            <form action="{% url "logout" %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
+                    Cerrar sesión
+                </button>
+            </form>
         
         {% else %}
         <h3>Querido usuario puedes iniciar sesion aqui</h3> <a href="{% url "login" %}"> Login</a>
