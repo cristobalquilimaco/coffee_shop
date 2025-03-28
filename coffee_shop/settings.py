@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_tailwind',
-    'rest_frameworks'
+    'rest_framework',
     'products',
     'users',
     'orders',
