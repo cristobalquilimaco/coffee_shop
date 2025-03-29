@@ -3,6 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import OrderProductForm
 from django.urls import reverse_lazy
 from .models import Order
+
+
 # Create your views here.
 class MyOrderView(LoginRequiredMixin, DetailView):
     model = Order
@@ -11,18 +13,18 @@ class MyOrderView(LoginRequiredMixin, DetailView):
 
     def get_object(self, queryset=None):
         return Order.objects.filter(is_active=True, user=self.request.user).first()
-    
+
 
 class CreateOrderProductView(LoginRequiredMixin, CreateView):
     template_name = "orders/create_order_product.html"
     form_class = OrderProductForm
-    success_url = reverse_lazy('my_order')
+    success_url = reverse_lazy("my_order")
 
     def form_valid(self, form):
-        #como se reciben 2 parametros se puede colocar un guion bajo para no tener que ocupar el campo con una variable que no se va a usar
+        # como se reciben 2 parametros se puede colocar un guion bajo para no tener que ocupar el campo con una variable que no se va a usar
         order, _ = Order.objects.get_or_create(
-            is_active = True,
-            user=self.request.user, 
+            is_active=True,
+            user=self.request.user,
         )
 
         form.instance.order = order

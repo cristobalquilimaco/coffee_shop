@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from .serializers import ProductSerializer
 from rest_framework.response import Response
 
+
 # Create your views here.
 class ProductFormView(generic.FormView):
     template_name = "products/add_product.html"
@@ -16,10 +17,11 @@ class ProductFormView(generic.FormView):
         form.save()
         return super().form_valid(form)
 
+
 class ProductListView(generic.ListView):
     model = Product
-    template_name = 'products/list_product.html'
-    context_object_name = 'products'
+    template_name = "products/list_product.html"
+    context_object_name = "products"
 
 
 class ProductListApi(APIView):
