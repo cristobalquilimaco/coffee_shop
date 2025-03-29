@@ -96,10 +96,16 @@ DATABASES = {
         'PASSWORD': env.str('DJANGO_DB_PASSWORD'),
         'HOST': env.str('DJANGO_DB_HOST'),
         'PORT': env.str('DJANGO_DB_PORT'),
-    }
+        # SE PUEDE REEMPLAZAR POR ESTO
+
+    }   
+# OTRA OPCION 
+    # env.db('DJANGO_DB_URL')
 }
 
-# OTRA OPCION 
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
