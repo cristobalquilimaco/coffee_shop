@@ -12,10 +12,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -84,13 +87,19 @@ WSGI_APPLICATION = 'coffee_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':
+        'NAME': env.str('DJANGO_DB_NAME'),
+        'USER': env.str('DJANGO_DB_USER'),
+        'PASSWORD': env.str('DJANGO_DB_PASSWORD'),
+        'HOST': env.str('DJANGO_DB_HOST'),
+        'PORT': env.str('DJANGO_DB_PORT'),
     }
 }
 
+# OTRA OPCION 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
