@@ -30,10 +30,12 @@ SECRET_KEY = 'django-insecure-b*&0t%6*)b__#z6ne^zdqgxd07!-qr%y&-etbl6grkb9o)@6@o
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'coffee-shop-production.eba-5ht8eda8.us-east-2.elasticbeanstalk.com',
-    'localhost',  # Si lo usas localmente
-    '127.0.0.1',  # Si lo usas localmente
+    'coffee-shop-production.eba-5ht8eda8.us-east-2.elasticbeanstalk.com',  # Tu dominio de producción
+    '172.31.34.149',  # La IP que aparece en el error
+    'localhost',
+    '127.0.0.1',
 ]
+
 
 
 # Application definition
